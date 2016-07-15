@@ -16,8 +16,10 @@ class PlaySoundViewController: UIViewController {
     @IBOutlet weak var vader: UIButton!
     @IBOutlet weak var rabbit: UIButton!
     @IBOutlet weak var snail: UIButton!
-    @IBOutlet weak var stop: UIButton!
+    @IBOutlet weak var echo: UIButton!
+    @IBOutlet weak var reverb: UIButton!
     
+    @IBOutlet weak var stop: UIButton!
     
     // MARK: - Properties
     var recordedAudioURL: NSURL!
@@ -26,7 +28,7 @@ class PlaySoundViewController: UIViewController {
     var audioPlayerNode: AVAudioPlayerNode!
     var stopTimer: NSTimer!
     
-    enum ButtonType: Int { case Chipmunk = 0, Vader, Fast, Slow}
+    enum ButtonType: Int { case Chipmunk = 0, Vader, Fast, Slow, Echo, Reverb}
     
     // MARK: - Methods
     override func viewDidLoad() {
@@ -50,14 +52,21 @@ class PlaySoundViewController: UIViewController {
     @IBAction func PlaySoundButtonPressed(sender: AnyObject) {
         switch ButtonType(rawValue: sender.tag)! {
         case .Chipmunk:
-            playSound(pitch: 2000)
+            playSound(pitch: 1500)
         case .Vader:
-            playSound(pitch: -2000)
+            playSound(pitch: -1000)
         case .Fast:
             playSound(rate: 2.0)
         case .Slow:
             playSound(rate: 0.2)
+        case .Echo:
+            playSound(echo: true)
+        case . Reverb:
+            playSound(reverb: true)
+            
         }
+        //Disable the buttons while playing
+        configureUI(.Playing)
     }
 
     @IBAction func StopButtonPressed(sender: AnyObject) {

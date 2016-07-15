@@ -39,7 +39,7 @@ extension PlaySoundViewController: AVAudioPlayerDelegate {
         //`print("Audio has been setup")
     }
     
-    func playSound(rate rate: Float? = nil, pitch: Float? = nil) {
+    func playSound(rate rate: Float? = nil, pitch: Float? = nil, echo: Bool = false, reverb: Bool = false) {
         
         // initialize audio engine components
         audioEngine = AVAudioEngine()
@@ -70,7 +70,16 @@ extension PlaySoundViewController: AVAudioPlayerDelegate {
         audioEngine.attachNode(reverbNode)
         
         // connect nodes
-        connectAudioNodes(audioPlayerNode, changeRatePitchNode, audioEngine.outputNode)
+        // connect nodes
+        if echo == true && reverb == true {
+            connectAudioNodes(audioPlayerNode, changeRatePitchNode, echoNode, reverbNode, audioEngine.outputNode)
+        } else if echo == true {
+            connectAudioNodes(audioPlayerNode, changeRatePitchNode, echoNode, audioEngine.outputNode)
+        } else if reverb == true {
+            connectAudioNodes(audioPlayerNode, changeRatePitchNode, reverbNode, audioEngine.outputNode)
+        } else {
+            connectAudioNodes(audioPlayerNode, changeRatePitchNode, audioEngine.outputNode)
+        }
         
         
         // schedule to play and start the engine!
@@ -150,6 +159,8 @@ extension PlaySoundViewController: AVAudioPlayerDelegate {
         chipmunk.enabled = enabled
         rabbit.enabled = enabled
         vader.enabled = enabled
+        echo.enabled = enabled
+        reverb.enabled = enabled
     }
     
     

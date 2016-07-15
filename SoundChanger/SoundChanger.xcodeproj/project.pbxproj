@@ -102,13 +102,13 @@
 			isa = PBXGroup;
 			children = (
 				6B229C431D3848C80046B340 /* PlaySoundViewController.swift */,
+				6B229C451D387F940046B340 /* PlaySoundsViewControllerExtension.swift */,
 				6B79590A1D32AC2D00F08B31 /* AppDelegate.swift */,
 				6B79590C1D32AC2D00F08B31 /* RecordViewController.swift */,
 				6B79590E1D32AC2D00F08B31 /* Main.storyboard */,
 				6B7959111D32AC2D00F08B31 /* Assets.xcassets */,
 				6B7959131D32AC2D00F08B31 /* LaunchScreen.storyboard */,
 				6B7959161D32AC2D00F08B31 /* Info.plist */,
-				6B229C451D387F940046B340 /* PlaySoundsViewControllerExtension.swift */,
 			);
 			path = SoundChanger;
 			sourceTree = "<group>";
