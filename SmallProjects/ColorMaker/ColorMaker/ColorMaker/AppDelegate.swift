@@ -2,8 +2,8 @@
 //  AppDelegate.swift
 //  ColorMaker
 //
-//  Created by Jason Schatz on 11/2/14.
-//  Copyright (c) 2014 Udacity. All rights reserved.
+//  Created by Juntian Tao on 7/15/16.
+//  Copyright © 2016 Juntian Tao. All rights reserved.
 //
 
 import UIKit
