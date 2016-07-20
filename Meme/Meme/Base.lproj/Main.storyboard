@@ -58,7 +58,7 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="TlT-j9-0ie"/>
-                                    <barButtonItem title="Camera" id="auA-FK-wQo">
+                                    <barButtonItem systemItem="camera" id="auA-FK-wQo">
                                         <connections>
                                             <action selector="pickFromCamera:" destination="BYZ-38-t0r" id="AJQ-u3-VZi"/>
                                         </connections>
