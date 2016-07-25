@@ -82,19 +82,13 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
             if ok {
                 self.dismissViewControllerAnimated(true, completion: nil)
                 self.save()
-                self.navigationController?.popViewControllerAnimated(true)
             }
         }
     }
     
     // Reset everything
     @IBAction func cancel(sender: AnyObject) {
-        topTextField.text = "TOP"
-        bottomTextField.text = "BOTTOM"
-        imageSection.image = UIImage()
-        shareButton.enabled = false
-        topTextField.resignFirstResponder()
-        bottomTextField.resignFirstResponder()
+        dismissViewControllerAnimated(true, completion: nil)
     }
     
     // MARK: Delegate work

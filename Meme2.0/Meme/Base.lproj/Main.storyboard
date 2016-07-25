@@ -278,15 +278,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GQp-kh-WdV">
-                                <rect key="frame" x="20" y="20" width="560" height="580"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="GQp-kh-WdV" firstAttribute="leading" secondItem="GLu-OA-RZm" secondAttribute="leadingMargin" id="M3b-vw-RwK"/>
-                            <constraint firstItem="GQp-kh-WdV" firstAttribute="top" secondItem="Wks-mz-KEK" secondAttribute="bottom" id="WE5-7p-o9U"/>
+                            <constraint firstItem="GQp-kh-WdV" firstAttribute="leading" secondItem="GLu-OA-RZm" secondAttribute="leadingMargin" constant="-20" id="M3b-vw-RwK"/>
+                            <constraint firstItem="GQp-kh-WdV" firstAttribute="top" secondItem="Wks-mz-KEK" secondAttribute="bottom" constant="-20" id="WE5-7p-o9U"/>
                             <constraint firstItem="eHY-8F-xKo" firstAttribute="top" secondItem="GQp-kh-WdV" secondAttribute="bottom" id="f1g-Ym-OSC"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="GQp-kh-WdV" secondAttribute="trailing" id="w06-mK-fSa"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="GQp-kh-WdV" secondAttribute="trailing" constant="-20" id="w06-mK-fSa"/>
                         </constraints>
                     </view>
                     <connections>

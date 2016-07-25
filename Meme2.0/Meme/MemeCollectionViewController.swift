@@ -24,11 +24,13 @@ class MemeCollectionViewController: UICollectionViewController {
         flowLayout.minimumLineSpacing = space
         flowLayout.minimumInteritemSpacing = space
         
-        let dimension = (view.frame.size.width - (2 * space)) / 3.0
-        flowLayout.itemSize = CGSizeMake(dimension, dimension)
+        let widthDimension = (self.view.frame.width - (2 * space)) / space
+        let heightDimension = (self.view.frame.height - (2 * space)) / space
+        flowLayout.itemSize = CGSizeMake(widthDimension, heightDimension)
     }
 
     override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         tabBarController?.tabBar.hidden = false
         collectionView!.reloadData()
     }
