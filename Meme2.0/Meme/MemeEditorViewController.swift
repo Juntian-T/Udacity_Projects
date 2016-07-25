@@ -100,10 +100,13 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     // MARK: Delegate work
     
     // After user picks an image (or takes a photo), show the image and enable share button
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            imageSection.image = pickedImage
+            shareButton.enabled = true
+        }
         dismissViewControllerAnimated(true, completion: nil)
-        imageSection.image = image
-        shareButton.enabled = true
     }
     
     // MARK: Helpers
