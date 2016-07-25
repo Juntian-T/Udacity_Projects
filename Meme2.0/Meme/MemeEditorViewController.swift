@@ -50,7 +50,10 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         
         shareButton.enabled = false
     }
-
+    
+    override func prefersStatusBarHidden() -> Bool {
+        return true
+    }
 
     // MARK: Actions
     
@@ -79,6 +82,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
             if ok {
                 self.dismissViewControllerAnimated(true, completion: nil)
                 self.save()
+                self.navigationController?.popViewControllerAnimated(true)
             }
         }
     }
@@ -155,6 +159,11 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     
     func save() {
         meme = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, image: imageSection.image!, memedImage: memedImage)
+        
+        // Add it to the memes array in the Application Delegate
+        let object = UIApplication.sharedApplication().delegate
+        let appDelegate = object as! AppDelegate
+        appDelegate.memes.append(meme)
     }
 
     // MARK: Notification related
