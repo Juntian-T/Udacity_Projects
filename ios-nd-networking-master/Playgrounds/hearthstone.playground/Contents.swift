@@ -21,7 +21,32 @@ var parsingHearthstoneError: NSError? = nil
 var parsedHearthstoneJSON = try! NSJSONSerialization.JSONObjectWithData(rawHearthstoneJSON!, options: .AllowFragments) as! NSDictionary
 
 func parseJSONAsDictionary(dictionary: NSDictionary) {
-    /* Start playing with JSON here... */
+    let minions = parsedHearthstoneJSON["Basic"] as! [[String: AnyObject]]
+    
+    var num = 0
+    for (_, e) in minions.enumerate() {
+        if let type = e["type"] as? String, cost = e["cost"] as? Int{
+            if type == "Minion" && cost == 5 {
+                num+=1
+            }
+        }
+    }
+    print(num)
+    
+    var num2 = 0
+    for ele in minions {
+        if let type = ele["type"] as? String, durability = ele["durability"] as? Int{
+            if type == "Weapon" && durability == 2 {
+                num2+=1
+            }
+            
+            if type == "Minion" {
+                num+=1
+            }
+        }
+    }
+    print(num2)
+    
 }
 
 parseJSONAsDictionary(parsedHearthstoneJSON)
